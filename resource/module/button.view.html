@@ -1,0 +1,9 @@
+<a {{:href( 'href="{{$this}}"' )}} target="{{:target( '{{$this}}', '_self' )}}">
+    <button id="{{:id()}}" class="{{:class()}} color{{:color( '{{$this}}', '3' )}} type{{:size( '{{$this}}', 'default' )}}" onclick="{{:onClick()}}" title="{{:title()}}" type="{{:type( '{{$this}}', 'button' )}}" style="{{:style()}}" unitButton>
+        <div class="buttonMask"></div>
+        <div class="buttonContent clear {{:children( '', 'onlyIcon' )}}">
+            {{:icon( '<i class="buttonIcon block bold {{$this}}"></i>' )}}
+            <span>{{:children()}}</span>
+        </div>
+    </button>
+</a>

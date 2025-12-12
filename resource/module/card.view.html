@@ -1,0 +1,13 @@
+@php $cardId = uuid(); @endphp
+<div id="{{:id()}}" class="{{:class()}}  color{{:color( '{{$this}}', '6' )}} {{:status( '{{$this}}', '' )}}" style="--step: {{:step( '{{$this}}', '8px' )}}; {{:style()}}" rid="{{$cardId}}" unitCard>
+    <div class="cardTitle {{:title( '', 'hidden' )}}">
+        <span class="bold more">{{:title( '{{$this}}', '' )}}</span>
+        <div class="cardTitleRight">
+            <i class="status {{'{{:status()}}' === 'open' ? 'bi-chevron-up' : 'bi-chevron-down'}} {{:status( '{{$this}}', 'hidden' )}}" onclick="todu.unit.card( `{{$cardId}}` )"></i>
+            {{:right()}}
+        </div>
+    </div>
+    <div class="cardContent">
+        {{:children()}}
+    </div>
+</div>

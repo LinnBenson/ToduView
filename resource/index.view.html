@@ -1,0 +1,43 @@
+<html lang="{{$lang}}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="Cache-Control" content="no-siteapp">
+        <link rel="icon" href="{{:icon( '{{$this}}', '{{$theme["fav"]}}' )}}?{{$v}}" type="image/png">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{:icon( '{{$this}}', '{{$theme["fav"]}}' )}}?{{$v}}">
+        <link rel="apple-touch-icon-precomposed" href="{{:icon( '{{$this}}', '{{$theme["fav"]}}' )}}?{{$v}}" />
+        <meta name="msapplication-TileImage" content="{{:icon( '{{$this}}', '{{$theme["fav"]}}' )}}?{{$v}}" />
+        <link rel="shortcut icon" href="{{:icon( '{{$this}}', '{{$theme["fav"]}}' )}}?{{$v}}" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="full-screen" content="yes">
+        <meta name="browsermode" content="application">
+        <meta name="x5-fullscreen" content="true">
+        <meta name="x5-page-mode" content="app">
+        @php
+            $themeClass = '';
+            foreach( $theme as $key => $value ) {
+                if ( startsWith( $key, '--' ) ) {
+                    $themeClass .= "{$key}: {$value}; ";
+                }
+            }
+        @endphp
+
+        <{{"style"}}>:root{ {{$themeClass}} }</{{"style"}}>
+        <script>window['system'] = { tid: `{{$tid}}`, view: '{{$view}}', themeName: `{{$themeName}}`, lang: `{{$lang}}`, entrance: `{{$plugin->config( 'entrance' )}}` };</script>
+        <script src="/{{$plugin->config( 'entrance' )}}/assets?file=js/rely.js"></script>
+        <link rel="stylesheet" href="/{{$plugin->config( 'entrance' )}}/assets?file=css/rely.css">
+        <script src="/{{$plugin->config( 'entrance' )}}/assets?file=js/todu.js&{{$v}}"></script>
+        {{!! isset( $theme['style'] ) && !empty( $theme['style'] ) ? '<style rel="stylesheet" href="'.$theme['style'].'"></style>' : '' !!}}
+
+        <meta property="og:image" content="{{:icon( '{{$this}}', '{{$theme["fav"]}}' )}}?{{$v}}" />
+        <meta property="og:title" content="{{:title( '{{$this}} - ', '' )}}{{ config( 'app.title' ) }}" />
+        {{:keywords( '<meta name="keywords" content="{{$this}}", id="metakeywords">', '' )}}
+        {{:description( '<meta name="keywords" content="{{$this}}", id="metakeywords">', '' )}}
+
+        <title>{{:title( '{{$this}} - ', '' )}}{{ config( 'app.title' ) }}</title>{{:header()}}
+    </head>
+    <body>
+<x-todu.unit></x-todu.unit>{{:body()}}</body>{{:children()}}
+</html>
