@@ -317,6 +317,7 @@ vendor/bin/todu plugin install:LinnBenson/ToduView
   .button( [string]:按钮文本, [function]:点击回调 ); // 可选，添加底部按钮，回调函数第一个参数弹出窗口对象
   .show(); // 显示窗口
   .clear( [string]|null:窗口 id ); // 可选，清除弹出窗口
+  .minimize( [string]|null:窗口 id ); // 最小化窗口
   .maximize( [string]|null:窗口 id ); // 最大化窗口
   ```
   - return [object]:弹出窗口对象

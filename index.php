@@ -9,7 +9,7 @@ use Plugin\ToduView\Render;
     return new class extends Plugin {
         public $name = 'TODU.IO View Renderer'; // 插件名称
         public $author = 'TODU.IO'; // 插件作者
-        public $version = '1.1.1'; // 当前插件版本
+        public $version = '1.1.2'; // 当前插件版本
         public $description = 'System default view rendering.'; // 插件描述
         /**
          * 初始化
